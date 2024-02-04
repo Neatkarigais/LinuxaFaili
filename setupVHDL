@@ -1,0 +1,12 @@
+#!/bin/bash
+cd /home/mint/
+sudo apt-get update
+sudo apt-get install ghdl gtkwave
+# VHDL failu palaišana
+ghdl -s ha.vhd
+ghdl -a ha_tb.vhd
+ghdl -s ha_tb.vhd
+ghdl -a ha.vhd
+ghdl -e ha_tb
+ghdl -r ha_tb --vcd=ha.vcd
+gtkwave ha.vcd
